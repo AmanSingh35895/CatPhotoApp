@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const catPhotoForm = document.querySelector('form');
     const catPhotoContainer = document.getElementById('catPhotoContainer');
 
-    // Load saved data from local storage
+    
     loadFormData();
 
     catPhotoForm.addEventListener('submit', function(event) {
@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
             catPhotoContainer.classList.add('show'); // Show the container
             catPhotoForm.reset(); // Reset the form
 
-            // Save the form data to local storage
+            
             saveFormData(catPhotoUrl);
         }
     });
 
-    // Save form data to local storage
+    
     function saveFormData(catPhotoUrl) {
         const indoorOutdoor = document.querySelector('input[name="indoor-outdoor"]:checked').value;
         const personality = Array.from(document.querySelectorAll('input[name="personality"]:checked')).map(input => input.value);
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('allCatFormData', JSON.stringify(allFormData));
     }
 
-    // Load form data from local storage
+    
     function loadFormData() {
         const savedData = JSON.parse(localStorage.getItem('allCatFormData'));
         if (savedData && savedData.length > 0) {
